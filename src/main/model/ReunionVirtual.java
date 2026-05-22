@@ -4,7 +4,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Date;
 
-public class ReunionVirtual extends Reunion {/** clase que representa una reunión en modalidad virtual.
+public class ReunionVirtual extends Reunion {/** clase que representa una reunión en modalidad virtual
                                              * añade soporte para manejar el enlace para la conexion a la pagina de la reunion virtual */
     private String enlace;
     /** constructor para inicializar una reunión virtual con sus datos y enlace */
