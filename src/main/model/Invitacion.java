@@ -26,8 +26,8 @@ public class Invitacion {/** clase que representa la invitacion enviada a una en
   public void setInvitado(invitable invitado){
     this.invitado = invitado;}
 
-@Override
-public String toString() {
+  @Override
+  public String toString() {
         return "Invitacion{" + "hora=" + hora + ", invitado=" + invitado + '}';
     }
 }
