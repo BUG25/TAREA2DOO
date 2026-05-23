@@ -1,5 +1,4 @@
-package com.reuniones.model;
-import com.reuniones.model.enums.TipoReunion;
+package reuniones.model;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Date;

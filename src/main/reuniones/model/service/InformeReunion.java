@@ -1,7 +1,5 @@
-package com.reuniones.service;
-
-import com.reuniones.model.*;
-
+package reuniones.model.service;
+import reuniones.model.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -80,10 +78,11 @@ public class InformeReunion {
         sb.append("Participantes presentes:\n");
         for (Asistencia a : reunion.obtenerAsistencias()) {
             String nombre = obtenerNombre(a.getParticipante());
-            if (a.tieneretraso()) {
+            if (a.tieneRetraso()) {
+                Retraso retraso = (Retraso) a;
                 sb.append("  - ").append(nombre)
                   .append(" [TARDE - llegó a las ")
-                  .append(FORMATTER.format(a.getRetraso().getHora())).append("]\n");
+                  .append(FORMATTER.format(retraso.getHora())).append("]\n");
             } else {
                 sb.append("  - ").append(nombre).append("\n");
             }

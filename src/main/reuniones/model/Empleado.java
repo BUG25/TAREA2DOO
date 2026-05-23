@@ -1,4 +1,4 @@
-package com.reuniones.model;
+package reuniones.model;
 public class Empleado implements Invitable {/** clase que represneta a un empelado 
                                             * Un emepleado puede ser organizador como invitado a la reunion */
   private String id;
@@ -14,13 +14,13 @@ public class Empleado implements Invitable {/** clase que represneta a un empela
 }
 
 /** Implementa el metodo de la interfaz Invitable */
-  @Overrride
+  @Override
   public void invitar() {
     System.out.println("Enviando invitacion a traves de la consola al empleado: " + getNombreCompleto() + " (" + correo + ")");
 }
   public String getNombreCompleto(){ /** combianmos el nombre con apellido para facilitar la lectura
                                     * @return nombre completo del empleado */
-    return this.nombre + " " + this,apellidos;
+    return this.nombre + " " + this.apellidos;
 }
 /** Getters y setters */
   public String getId(){
@@ -34,7 +34,7 @@ public class Empleado implements Invitable {/** clase que represneta a un empela
   public String getApellidos(){
     return apellidos;}
   public void setApellidos(String apellidos){
-    this.apellidos;}
+    this.apellidos = apellidos;}
   public String getCorreo(){
     return correo;}
   public void setCorreo(String correo){
@@ -42,5 +42,5 @@ public class Empleado implements Invitable {/** clase que represneta a un empela
 
   @Override
   public String toString(){
-    return "Empleado{@ + @id='" + id + "'\" + ", nombre completo='" + getNombreCompleto() + "'/" + ", correo='" + correo + "'\" + "}";
+    return "Empleado{@ + @id='" + id + '\'' + ", nombre completo=" + getNombreCompleto() + "'/" + ", correo='" + correo + '\'' + '}';}
 }

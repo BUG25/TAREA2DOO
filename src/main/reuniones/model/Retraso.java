@@ -1,10 +1,10 @@
-package com.reuniones.model;
-import java.time.Instants;
+package reuniones.model;
+import java.time.Instant;
 public class Retraso extends Asistencia{/** clase que representa una asistencia con retraso
                                         * hereda de asistencia y añade la hora exacta de llegada*/
   private Instant hora;
   
-  public Retraso(Invitable partcipante){/** constructor que registra un retraso con hora actaul de llegada
+  public Retraso(Invitable participante){/** constructor que registra un retraso con hora actaul de llegada
                                         * @param participante que llego tarde (empleado o invitado externo) */
     super(participante);
     this.hora = Instant.now();
@@ -15,7 +15,7 @@ public class Retraso extends Asistencia{/** clase que representa una asistencia 
     super(participante);
     this.hora = hora;
   }
-  /** sobreescribe elmetodo para indicar que la asistencia si es un retraso 
+  /** sobreescribe el metodo para indicar que la asistencia si es un retraso
   * @return true siempre */
   
   @Override

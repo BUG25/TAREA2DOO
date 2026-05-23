@@ -1,4 +1,4 @@
-package com.reuniones.exception;
+package reuniones.model.exception;
 
 /**
  * Excepción lanzada cuando se intenta realizar una operación sobre una reunión
