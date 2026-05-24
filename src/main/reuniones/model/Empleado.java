@@ -1,5 +1,8 @@
 package reuniones.model;
-public class Empleado implements Invitable {/** clase que represneta a un empelado 
+
+import reuniones.model.exception.EmailNoValidoException;
+
+public class Empleado implements Invitable {/** clase que represneta a un empelado
                                             * Un emepleado puede ser organizador como invitado a la reunion */
   private String id;
   private String apellidos;
@@ -10,7 +13,7 @@ public class Empleado implements Invitable {/** clase que represneta a un empela
     this.id = id;
     this.nombre = nombre;
     this.apellidos = apellidos;
-    this.correo = correo;
+    setCorreo(correo);
 }
 
 /** Implementa el metodo de la interfaz Invitable */
@@ -38,6 +41,9 @@ public class Empleado implements Invitable {/** clase que represneta a un empela
   public String getCorreo(){
     return correo;}
   public void setCorreo(String correo){
+    if (correo==null) {
+      throw new EmailNoValidoException("El correo no puede ser nulo");
+    }
     this.correo = correo;}
 
   @Override

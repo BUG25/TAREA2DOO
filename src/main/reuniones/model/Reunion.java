@@ -1,4 +1,5 @@
 package reuniones.model;
+import reuniones.model.exception.InvitadoNoValidoException;
 import reuniones.model.exception.ReunionNoIniciadaException;
 import reuniones.model.exception.ReunionYaFinalizadaException;
 import java.time.Duration;
@@ -110,6 +111,19 @@ public abstract class Reunion { /** hacemos una clase abstracta que represente u
     if(this.horaFin != null){
       throw new ReunionYaFinalizadaException("No se puede registrar la asistencia de una reunion que ya ha terminado");
   }
+    Invitable participante = asistencia.getParticipante();
+    boolean esInvitado = false;
+    for(Invitacion invitacion : this.invitaciones) {
+      if(invitacion.getInvitado().equals(participante)) {
+        esInvitado = true;
+        break;
+      }
+    }
+    if(!esInvitado) {
+      throw new InvitadoNoValidoException(
+              "El participante " + participante + " no está en la lista de invitados de esta reunión"
+      );
+    }
     this.asistencias.add(asistencia);
 }
 

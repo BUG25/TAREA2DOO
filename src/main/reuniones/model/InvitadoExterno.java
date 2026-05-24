@@ -1,4 +1,7 @@
 package reuniones.model;
+
+import reuniones.model.exception.EmailNoValidoException;
+
 public class InvitadoExterno implements Invitable { /** clase que representa a un invitado externo
                                                      *implementa la interfaz Invitable para poder ser agregado a las listas de invitaciones y asistencias de cualquier reunión */
     private String nombre;
@@ -31,7 +34,11 @@ public class InvitadoExterno implements Invitable { /** clase que representa a u
     public void setApellidos(String apellidos) { this.apellidos = apellidos; }
 
     public String getCorreo() { return correo; }
-    public void setCorreo(String correo) { this.correo = correo; }
+    public void setCorreo(String correo){
+        if (correo==null) {
+            throw new EmailNoValidoException("El correo no puede ser nulo");
+        }
+        this.correo = correo;}
 
     @Override
     public String toString() {
