@@ -1,4 +1,4 @@
-package com.reuniones.exception;
+package reuniones.model.exception;
 
 /**
  * Excepción lanzada cuando se intenta registrar la asistencia o el retraso

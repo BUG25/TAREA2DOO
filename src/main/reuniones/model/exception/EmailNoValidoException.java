@@ -1,9 +1,9 @@
-package com.reuniones.exception;
+package reuniones.model.exception;
 
 /**
  * Excepción lanzada cuando se proporciona una dirección de correo electrónico
- * con formato inválido al crear un {@link com.reuniones.model.Empleado}
- * o un {@link com.reuniones.model.InvitadoExterno}.
+ * con formato inválido al crear un {@link reuniones.model.Empleado}
+ * o un {@link reuniones.model.InvitadoExterno}.
  */
 public class EmailNoValidoException extends RuntimeException {
 
