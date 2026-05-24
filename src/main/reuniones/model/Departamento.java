@@ -13,11 +13,16 @@ public class Departamento implements Invitable {/** clase que representa un depa
 
   public void agregarEmpleado(Empleado empleado){/** añade un empleado a la lista del departamneto
                                                 * @param empleado (empleado a incorporar) */
-    this.empleados.add(empleado);}
+    if (empleado != null && !empleados.contains(empleado)) {
+      this.empleados.add(empleado);}
+  }
 
   public int obtenerCantidadEmpleados(){/** calcula y retorna numero total de pelados pertenecientes al departamento
                                       * @return cantidad de empleados */
     return this.empleados.size();}
+  public String getNombre() {
+    return nombre;
+  }
 
 /** implementamos la interfaz invitable
 * si se invita a un departamento, se crea la invitacion automatica oara cadauno de los empleados del departamento */
