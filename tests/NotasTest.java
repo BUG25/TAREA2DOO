@@ -2,12 +2,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import reuniones.model.Nota;
-
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
-class NotaTest {
+class NotasTest {
 
     private Nota nota;
     private final String CONTENIDO_PRUEBA = "Esta es una nota de prueba";
