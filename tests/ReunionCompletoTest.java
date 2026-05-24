@@ -1,5 +1,3 @@
-package reuniones.tests;
-
 import org.junit.jupiter.api.*;
 import reuniones.model.*;
 import reuniones.model.exception.*;

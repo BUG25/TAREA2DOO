@@ -1,7 +1,5 @@
-package com.reuniones;
-
-import com.reuniones.exception.EmpleadoNoValidoException;
-import com.reuniones.model.Empleado;
+import reuniones.model.exception.EmpleadoNoValidoException;
+import reuniones.model.Empleado;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
