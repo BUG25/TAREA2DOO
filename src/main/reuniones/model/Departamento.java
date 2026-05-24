@@ -1,4 +1,4 @@
-package com.reuniones.model;
+package reuniones.model;
 import java.util.ArrayList;
 import java.util.List;
 

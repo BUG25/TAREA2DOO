@@ -1,4 +1,4 @@
-package com.reuniones.model;
+package reuniones.model;
 public class InvitadoExterno implements Invitable { /** clase que representa a un invitado externo
                                                      *implementa la interfaz Invitable para poder ser agregado a las listas de invitaciones y asistencias de cualquier reunión */
     private String nombre;

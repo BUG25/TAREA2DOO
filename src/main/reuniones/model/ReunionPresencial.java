@@ -1,5 +1,4 @@
-package com.reuniones.model;
-import com.reuniones.model.enums.TipoReunion;
+package reuniones.model;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Date;
@@ -8,7 +7,7 @@ public class ReunionPresencial extends Reunion {/** clase que representa una reu
                                                  * añade soporte para especificar la sala física donde se llevará a cabo la reunion */
     private String sala;
   
-/** constructor para inicializar una reunión presencial con sus datos y sala */
+/** Constructor para inicializar una reunión presencial con sus datos y sala */
     public ReunionPresencial(Date fecha, Instant horaPrevista, Duration duracionPrevista, Empleado organizador, TipoReunion tipoReunion, String sala) {
         super(fecha, horaPrevista, duracionPrevista, organizador, tipoReunion);
         this.sala = sala;

@@ -1,4 +1,4 @@
-package com.reuniones.model.enums;
+package reuniones.model;
 
 /**
  * Enumeración que representa los tipos posibles de reunión.

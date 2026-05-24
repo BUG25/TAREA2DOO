@@ -1,4 +1,4 @@
-package com.reuniones.model;
+package reuniones.model;
 import java.time.Instant;
 
 public class Nota {/** clase que representa nota o apunte tomado durante una reunion

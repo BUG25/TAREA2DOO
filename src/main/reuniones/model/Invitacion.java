@@ -1,4 +1,4 @@
-package com.reuniones.model;
+package reuniones.model;
 import java.time.Instant;
 public class Invitacion {/** clase que representa la invitacion enviada a una entidad (empleado, departamento o invitado externo) para asistir a una reunion
                          * almacena al participante y la hora de emision */
@@ -23,7 +23,7 @@ public class Invitacion {/** clase que representa la invitacion enviada a una en
     this.hora = hora;}
   public Invitable getInvitado(){
     return invitado;}
-  public void setInvitado(invitable invitado){
+  public void setInvitado(Invitable invitado){
     this.invitado = invitado;}
 
   @Override

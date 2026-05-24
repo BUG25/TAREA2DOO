@@ -302,11 +302,11 @@ public abstract class Reunion {
     this.horaInicio = Instant.now();}
 
 /** se finaliza la reunion registrando la hora final como el instante actual
-* @throws ReunionNoIniciadaEXception si la reunion no ha sido iniciada aun */
+* @throws ReunionNoIniciadaException si la reunion no ha sido iniciada aun */
 
   public void finalizar(){
     if(this.horaInicio == null){
-      throw new ReunionNoIniciadaException("No se puede finalizar una reunion que no ha inciado");
+      throw new ReunionNoIniciadaException("No se puede finalizar una reunion que no ha iniciado");
     }
     this.horaFin = Instant.now();
   }
@@ -314,12 +314,12 @@ public abstract class Reunion {
   public float calcularTiempoReal(){ /**calcula el tiempo real transcurrido entre el incio y fin de la reunion en minutos
                                       *@return duracion en minutos, o 0 si es que no se ha terminado la reunion */
     if(horaInicio != null && horaFin != null){
-      return Duration.between(horaIncio,horaFin).toMinutes();
+      return Duration.between(horaInicio,horaFin).toMinutes();
     }
     return 0;
   }
 
-  public List<Asistencia> obtenerAsisntencias(){ /**obtiene lista de asitencias*/
+  public List<Asistencia> obtenerAsistencias(){ /**obtiene lista de asitencias*/
     return this.asistencias;
   }
 
@@ -328,7 +328,7 @@ public abstract class Reunion {
     for(Invitacion inv : invitaciones) {
       Invitable invitado = inv.getInvitado();
       boolean presente = false;
-      for (Asistencia asis: asistencia){
+      for (Asistencia asis: asistencias){
         if(asis.getParticipante().equals(invitado)){
           presente = true;
           break;
@@ -338,9 +338,9 @@ public abstract class Reunion {
         ausentes.add(invitado);
       }
     }
-    return ausentes:
+    return ausentes;
   }
-  public List<Retraso> obtenerRetrasos(){ /** obtiene lista con asistencias que sean retrasos*/
+  public List<Retraso> obtenerRetrasos(){ /** Obtiene lista con asistencias que sean retrasos*/
     List<Retraso> retrasos = new ArrayList<>();
     for(Asistencia asis: asistencias){
       if (asis instanceof Retraso) {
@@ -349,15 +349,15 @@ public abstract class Reunion {
   }
     return retrasos;
 }
-  public int obtenerTotalAsistencia(){ /** obtiene la cant total de personas asistentes*/
+  public int obtenerTotalAsistencia(){ /** Obtiene la cant total de personas asistentes*/
     return this.asistencias.size();
 }
-  public float obtenerPorcentajeAsistencia(){ /** calculamos el procentaje de asistencia segun el total de invitaciones */
+  public float obtenerPorcentajeAsistencia(){ /** Calculamos el procentaje de asistencia segun el total de invitaciones */
     if(invitaciones.isEmpty()) return 0;
     return ((float) obtenerTotalAsistencia() / invitaciones.size())*100;
 }
-  public List<Nota> obtenerNotasOrdenadas(){ /** obtiene las notas ordenadas cronologicamente*/
-    List<Nota> notasOrdenadas = new ArraysList<>(this.notas);
+  public List<Nota> obtenerNotasOrdenadas(){ /** Obtiene las notas ordenadas cronologicamente*/
+    List<Nota> notasOrdenadas = new ArrayList<>(this.notas);
     notasOrdenadas.sort(Comparator.comparing(Nota::getHoraCreacion));
     return notasOrdenadas;
 }
@@ -367,12 +367,12 @@ public abstract class Reunion {
   public void agregarInvitacion(Invitacion invitacion){
     this.invitaciones.add(invitacion);
 }
-  public void agregarAsistencia(Asistencia asisetncia){
-    if(this.horaIncio == null){
-      throw new ReunionNoInciadaException("No se puede registrar asistencia de una reunion que no ha comenzado");
+  public void agregarAsistencia(Asistencia asistencia){
+    if(this.horaInicio == null){
+      throw new ReunionNoIniciadaException("No se puede registrar asistencia de una reunion que no ha comenzado");
   }
     if(this.horaFin != null){
-      throw new ReunionYaFinalzadaException("No se puede registrar la asistencia de una reunion que ya ha terminado");
+      throw new ReunionYaFinalizadaException("No se puede registrar la asistencia de una reunion que ya ha terminado");
   }
     this.asistencias.add(asistencia);
 }
@@ -380,10 +380,10 @@ public abstract class Reunion {
 /** Getters y setters */
   public Date getFecha(){
     return fecha; }
-  public void setfecha(Date fecha){
+  public void setFecha(Date fecha){
     this.fecha = fecha; }
   public Instant getHoraPrevista(){
-    return horaPrevista; }
+    return horaPrevista;}
   public void setHoraPrevista(Instant horaPrevista){
     this.horaPrevista = horaPrevista; }
   public Duration getDuracionPrevista(){
@@ -399,10 +399,10 @@ public abstract class Reunion {
   public void setOrganizador(Empleado organizador){
     this.organizador = organizador;}
   public TipoReunion getTipoReunion(){
-    return TipoReunion;}
+    return tipoReunion;}
   public void setTipoReunion(TipoReunion tipoReunion){
     this.tipoReunion = tipoReunion;}
-  public List<Invitacion> get Invitaciones(){
+  public List<Invitacion> getInvitaciones(){
     return invitaciones;}
   
 @Override
