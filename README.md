@@ -113,12 +113,4 @@ Test run finished after 905 ms
 [         0 tests failed          ]
 ```
 
-Todas las funcionalidades están probadas: creación de reuniones, invitaciones, asistencias, retrasos, notas, excepciones y generación de informes.
-
-## Cómo guardar:
-
-Crea el archivo `README.md` en la raíz de tu proyecto:
-
-```cmd
-cd "D:\Archivos\Batman\Universidad\2026-1\DOO\TAREA 2\tarea2"
-notepad README.md
+Todas las funcionalidades están probadas: creación de reuniones, invitaciones, asistencias, retrasos, notas, excepciones y generación de informes
