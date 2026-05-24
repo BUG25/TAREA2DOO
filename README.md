@@ -39,14 +39,15 @@ Se añadieron 5 excepciones para manejar casos de error:
 
 ## Decisiones de diseño
 
-### ¿Por qué Invitable como interfaz?
-R: "Permite tratar de forma polimórfica a empleados, departamentos e invitados externos al momento de enviar invitaciones y registrar asistencias."
+Se implementó interfaz `Invitable` para tratar empleados, departamentos e invitados externos polimórficamente, unificando invitaciones y asistencias sin distinguir tipo concreto.
 
-### ¿Por qué InformeReunion como clase separada?
-R: "Siguiendo el principio de separación de responsabilidades (SRP), la generación de informes no es responsabilidad directa de la clase `Reunion`, sino de un servicio externo."
+Clase `InformeReunion` se diseñó como servicio independiente, no como método de `Reunion`, siguiendo SRP. Así generación y persistencia del informe no sobrecargan lógica de reunión.
 
-### ¿Por qué excepciones unchecked (RuntimeException)?
-R: "Simplifica el código al no requerir declarar `throws` en cada método, manteniendo la limpieza del código base."
+Excepciones personalizadas extienden `RuntimeException` para evitar propagación excesiva de `throws`, simplificando código y concentrando manejo de errores en tests.
+
+`Retraso` hereda de `Asistencia` para reutilizar estructura base y añadir hora de llegada, respetando Liskov. Permite recorrer única lista de `Asistencia` e identificar retrasos polimórficamente.
+
+Notas almacenan `Instant` de creación automático, garantizando orden cronológico preciso sin timestamps manuales, evitando inconsistencias.
 
 ## Estructura del proyecto
 ```
